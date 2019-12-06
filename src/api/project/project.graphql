@@ -1,1 +1,25 @@
 # Just create any Type and query you'd like!
+type Project {
+    name: String!
+    description: String
+}
+
+input ProjectInput {
+    name: String!
+    description: String
+}
+
+input UpdateProjectInput {
+    name: String
+    description: String
+}
+
+type Query {
+    project(id: ID!): Project
+    projects: [Project]
+}
+
+type Mutation {
+    newProject(input: ProjectInput!): Project!
+    updateProject(id: ID!, input:UpdateProjectInput!): Project!
+}
