@@ -46,5 +46,13 @@ module.exports = {
       return task._id + ''
     },
     // resolve some fields here
+    async project(task) {
+     const projectTask = await task.populate('project').execPopulate()
+     return projectTask.project;
+    },
+
+    parentTask(task, args, ctx) {
+      return ctx.models.task.findById(task._id).exec()
+    }
   }
 }
