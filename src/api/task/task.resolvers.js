@@ -61,6 +61,12 @@ module.exports = {
         is there a field on the task model that you can check?
         A value?
       */
+     switch(task.type) {
+      case 'design':
+         return 'DevTask';
+      case 'dev':
+        return 'DesignTask'
+     }
     }
   },
   DevTask: {
